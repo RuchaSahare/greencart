@@ -95,7 +95,7 @@ The app uses **MongoDB** with the following main collections:
 # 1. Backend (server)
 
 # Clone the repository
-git clone https://github.com/yourusername/greencart.git
+git clone https://github.com/RuchaSahare/greencart.git
 cd greencart/server
 
 # Install dependencies
