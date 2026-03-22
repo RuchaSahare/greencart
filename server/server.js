@@ -17,23 +17,30 @@ const PORT = process.env.PORT || 4000;
 // Connect Database
 await connectDB();
 
-// Allowed frontend origins
-const allowedOrigins = ["http://localhost:5173"];
+// ✅ SIMPLE & SAFE CORS FIX
+app.use(
+  cors({
+    origin: [
+      "https://greencart123.netlify.app",
+      "http://localhost:5173"
+    ],
+    credentials: true
+  })
+);
 
-// Middleware Configuration
+// Middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: allowedOrigins, credentials: true }));
 
-
+// Static files
 app.use("/uploads", express.static("uploads"));
 
-
+// Test route
 app.get("/", (req, res) => {
   res.send("API is Working");
 });
 
-
+// Routes
 app.use("/api/user", userRouter);
 app.use("/api/seller", sellerRouter);
 app.use("/api/product", productRouter);
@@ -41,7 +48,7 @@ app.use("/api/cart", cartRouter);
 app.use("/api/address", addressRouter);
 app.use("/api/order", orderRouter);
 
-
+// Start server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
