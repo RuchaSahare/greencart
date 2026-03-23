@@ -14,10 +14,8 @@ import orderRouter from "./routes/orderRoute.js";
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// Connect Database
 await connectDB();
 
-// ✅ SIMPLE & SAFE CORS FIX
 app.use(
   cors({
     origin: [
@@ -28,19 +26,15 @@ app.use(
   })
 );
 
-// Middleware
 app.use(express.json());
 app.use(cookieParser());
 
-// Static files
 app.use("/uploads", express.static("uploads"));
 
-// Test route
 app.get("/", (req, res) => {
   res.send("API is Working");
 });
 
-// Routes
 app.use("/api/user", userRouter);
 app.use("/api/seller", sellerRouter);
 app.use("/api/product", productRouter);
@@ -48,7 +42,6 @@ app.use("/api/cart", cartRouter);
 app.use("/api/address", addressRouter);
 app.use("/api/order", orderRouter);
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is running on port ${PORT}`);
 });
