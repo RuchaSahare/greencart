@@ -54,7 +54,7 @@ const ProductList = () => {
                       <div className="border border-gray-300 rounded overflow-hidden">
 
                         <img
-                          src={`http://localhost:4000/${product.image[0]}`}
+                          src={`https://greencart-flcw.onrender.com/${product.image[0]}`}
                           className="w-16"
                         />
 

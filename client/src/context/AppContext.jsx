@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 axios.defaults.withCredentials = true; // send cookies with API request
-axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL || "https://greencart-flcw.onrender.com";
 
 export const AppContext = createContext();
 

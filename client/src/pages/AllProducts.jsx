@@ -37,9 +37,9 @@ const AllProducts = () => {
           .map((product) => {
             const productImage =
               Array.isArray(product.image) && product.image.length > 0
-                ? `${import.meta.env.VITE_BACKEND_URL || "http://localhost:4000"}/${product.image[0]}`
+                ? `${import.meta.env.VITE_BACKEND_URL || "https://greencart-flcw.onrender.com"}/${product.image[0]}`
                 : typeof product.image === "string"
-                ? `${import.meta.env.VITE_BACKEND_URL || "http://localhost:4000"}/${product.image}`
+                ? `${import.meta.env.VITE_BACKEND_URL || "https://greencart-flcw.onrender.com"}/${product.image}`
                 : assets.default_image;
 
             return (
